@@ -1,0 +1,9 @@
+<% @movies.each do |movie| %>
+<h1><%= movie.title %></h1>
+<%= simple_form_for(@bookmark, url: list_bookmarks_path(@list)) do |f| %>
+<%= f.input :comment %>
+<%= f.hidden_field :movies_id, value: movie.id %>
+<%= f.hidden_field :lists_id, value: @list.id %>
+<%= f.submit %>
+<% end %>
+<% end %>
